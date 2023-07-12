@@ -31,6 +31,30 @@
       width: 100vw;
       overflow: scroll;
     }
+    
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      flex: 2;
+
+      padding: 5rem;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-grow: 5;
+      transition: display 1s linear;
+    }
+
+    footer {
+      flex-shrink: 1;
+      /* position: absolute;
+      bottom: 1em; */
+    }
 
     .panel {
       background-color: var(--bg-secondary);
@@ -76,17 +100,6 @@
       transform: scale(1.2);
     }
 
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-around;
-      flex: 2;
-
-      padding: 5rem;
-    }
-
     .about {
       text-align: center;
     }
@@ -107,7 +120,7 @@
       color: var(--text-main);
     }
 
-    #music {
+    #music-player {
       background-color: var(--bg-secondary);
       padding: 1em 0%;
       border-radius: 5px;
@@ -140,6 +153,10 @@
     }
 
     .audio>audio {}
+
+    .hidden {
+      display: none;
+    }
   </style>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
@@ -153,15 +170,15 @@
     </div>
     <nav>
       <ul class="menu">
-        <li class="menu-item active">About</li>
-        <li class="menu-item">Shows</li>
-        <li class="menu-item">News</li>
+        <li class="menu-item active" data-page="about">About</li>
+        <li class="menu-item" data-page="shows">Shows</li>
+        <li class="menu-item" data-page="news">News</li>
         <!-- <li class="menu-item">Press Kit</li> -->
-        <li class="menu-item">Music</li>
-        <li class="menu-item">Video</li>
-        <li class="menu-item">Feedback</li>
-        <li class="menu-item">Store</li>
-        <li class="menu-item">Contact</li>
+        <li class="menu-item" data-page="music">Music</li>
+        <li class="menu-item" data-page="video">Video</li>
+        <li class="menu-item" data-page="feedback">Feedback</li>
+        <li class="menu-item" data-page="store">Store</li>
+        <li class="menu-item" data-page="contact">Contact</li>
       </ul>
     </nav>
   </section>
@@ -169,7 +186,7 @@
   <main>
 
     <!-- About Page -->
-    <!-- <section id="about">
+    <section class="page" id="about">
       <h1>Tag Line</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sapien vel tellus efficitur suscipit. Fusce
@@ -181,10 +198,18 @@
         Aenean faucibus eleifend libero, vitae ullamcorper mi. Mauris commodo nulla lacus, vitae semper justo congue
         quis.
       </p>
-    </section> -->
+    </section>
 
-    <section id="music">
-      <figure class="audio">
+    <section class="page" id="shows">
+      SHOWS
+    </section>
+    <section class="page" id="news">
+      NEWS
+    </section>
+
+    <!-- Music Page -->
+    <section class="page" id="music">
+      <figure class="audio" id="music-player">
         <figcaption id="song-title">01. Degenerated</figcaption>
         <audio id="audio-player" controls>
           <source src="./test.mp3" type="audio/mpeg">
@@ -204,6 +229,23 @@
         </div>
       </figure>
     </section>
+
+    <section class="page" id="video">
+      VIDEO
+    </section>
+
+    <section class="page" id="feedback">
+      FEEDBACK
+    </section>
+
+    <section class="page" id="store">
+      STORE
+    </section>
+
+    <section class="page" id="contact">
+      CONTACT
+    </section>
+
     <footer>
       <div class="social">
         <ul>
@@ -218,6 +260,26 @@
   <script type="text/javascript">
 
     $(document).ready(function() {
+
+      // Initialize Page
+
+      const $page = $('.page');
+      $page.attr('hidden', true);
+
+      // Set default page
+      let $currentPage = $(`#about`);
+
+      function setPage(page) {
+        $currentPage.attr('hidden', true);
+
+        $currentPage = $(`#${page}`);
+        $currentPage.attr('hidden', false);
+
+        $page.addClass('hidden');
+        $(`#${page}`).removeClass('hidden');
+      }
+
+      setPage('about');
 
       // Music functions
 
@@ -260,9 +322,14 @@
 
       const $menuItem = $(".menu-item");
 
-      $menuItem.on('click', function(e) {
+      $menuItem.on('click', function(event) {
+        // Activate the button
         $menuItem.removeClass('active');
-        $(e.target).addClass('active');
+        $(event.target).addClass('active');
+
+        // Switch page
+        const page = $(event.target).attr('data-page');
+        setPage(page);
       });
 
     });
