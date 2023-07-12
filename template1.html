@@ -31,7 +31,7 @@
       width: 100vw;
       overflow: scroll;
     }
-    
+
     main {
       display: flex;
       flex-direction: column;
@@ -54,6 +54,10 @@
       flex-shrink: 1;
       /* position: absolute;
       bottom: 1em; */
+    }
+
+    .page>p {
+      /* width: 40vw; */
     }
 
     .panel {
@@ -264,19 +268,18 @@
       // Initialize Page
 
       const $page = $('.page');
-      $page.attr('hidden', true);
+      $page.hide();
 
       // Set default page
       let $currentPage = $(`#about`);
 
       function setPage(page) {
-        $currentPage.attr('hidden', true);
+        // $currentPage.attr('hidden', true);
+        $currentPage.fadeOut(200, function() {
+          $currentPage = $(`#${page}`);
+          $currentPage.fadeIn(400);
+        });
 
-        $currentPage = $(`#${page}`);
-        $currentPage.attr('hidden', false);
-
-        $page.addClass('hidden');
-        $(`#${page}`).removeClass('hidden');
       }
 
       setPage('about');
