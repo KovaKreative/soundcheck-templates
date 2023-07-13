@@ -7,6 +7,8 @@
   --neutral-highlight-1: #99AABB;
 
   --dark-1: #001133;
+  --dark-highlight-1: #114488;
+  --dark-highlight-2: #3366AA;
 }
 
 body {
@@ -71,7 +73,12 @@ h5 {
 }
 
 a {
-  color: var(--dark-1);
+  color: var(--dark-highlight-1);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--dark-highlight-2);
 }
 
 a.button {
@@ -232,6 +239,10 @@ img.headshot {
   align-items: center;
 }
 
+.headline {
+  text-transform: capitalize;
+}
+
 #music-player {
   background-color: var(--neutral-1);
   padding: 1em 0%;
@@ -272,6 +283,36 @@ img.headshot {
   box-shadow: 0px 5px 15px var(--neutral-1);
 }
 
+.video-list, .music-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+  flex-wrap: wrap;
+}
+
+img.photo {
+  max-width: 20%;
+  min-width: 200px;
+  aspect-ratio: 4 / 3;
+  border: 2px solid var(--dark-1);
+  object-fit: cover;
+}
+
+img.photo:hover {
+  cursor: pointer;
+}
+
+img.photo.active {
+  
+}
+
 .testimonial {
   background-color: var(--neutral-1-25);
   color: var(--light-1);
@@ -285,6 +326,24 @@ img.headshot {
   border-left: 4px solid var(--dark-1);
   padding: 0.5rem;
   margin-bottom: 0.5rem;
+}
+
+.shop-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.contact-wrapper {
+  display: flex;
+  justify-content: space-around;
+  gap: 2em;
+}
+
+.lead {
+  font-size: 1.5rem;
 }
 
 .hidden {
