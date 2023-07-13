@@ -11,157 +11,9 @@
   <!-- <link href="css/style.css" rel="stylesheet"> -->
   <!-- Reset CSS for all browsers -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
+  <link rel="stylesheet" href="./style1.css">
   <script src="https://kit.fontawesome.com/3a5c809ac6.js" crossorigin="anonymous"></script>
 
-  <style type="text/css">
-    :root {
-      --bg-main: #FFEEDD;
-      --bg-secondary: #667788;
-      --bg-secondary-highlight: #99AABB;
-
-      --text-main: #001133;
-      --text-secondary: #FFDDAA;
-    }
-
-    body {
-      color: var(--text-main);
-      background-color: var(--bg-main);
-      display: flex;
-      height: 100vh;
-      width: 100vw;
-      overflow: scroll;
-    }
-
-    main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      flex: 2;
-
-      padding: 5rem;
-    }
-
-    section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-grow: 5;
-      transition: display 1s linear;
-    }
-
-    footer {
-      flex-shrink: 1;
-      /* position: absolute;
-      bottom: 1em; */
-    }
-
-    .page>p {
-      /* width: 40vw; */
-    }
-
-    .panel {
-      background-color: var(--bg-secondary);
-      color: var(--text-secondary);
-
-      flex: 1;
-      padding: 2em 1em;
-
-      font-size: 30px;
-      /* font-weight: bold; */
-      text-transform: uppercase;
-      line-height: 2em;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .band-logo {
-      align-self: center;
-    }
-
-    .menu {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      align-items: flex-end;
-    }
-
-    .menu-item {
-      flex-shrink: 1;
-      list-style: none;
-      transition: transform 0.2s ease-out;
-    }
-
-    .menu-item.active {
-      font-weight: bolder;
-      transform: scale(1.1);
-    }
-
-    .menu-item:hover {
-      cursor: pointer;
-      transform: scale(1.2);
-    }
-
-    .about {
-      text-align: center;
-    }
-
-    .social {
-      font-size: 3rem;
-    }
-
-    .social>ul {
-      display: flex;
-    }
-
-    .social-link {
-      margin: 0.5rem;
-    }
-
-    a {
-      color: var(--text-main);
-    }
-
-    #music-player {
-      background-color: var(--bg-secondary);
-      padding: 1em 0%;
-      border-radius: 5px;
-    }
-
-    #song-title {
-      background-color: var(--text-main);
-      color: var(--bg-secondary);
-      padding: 0.5em;
-    }
-
-    #track-list {
-      padding: 0% 0.5em;
-      max-height: 5em;
-      overflow: hidden;
-      overflow-y: scroll;
-    }
-
-    .song {
-      list-style: none;
-      cursor: pointer;
-    }
-
-    .song.playing {
-      color: var(--bg-secondary-highlight);
-    }
-
-    .song:hover {
-      color: var(--bg-secondary-highlight);
-    }
-
-    .audio>audio {}
-
-    .hidden {
-      display: none;
-    }
-  </style>
 
   <script src="https://code.jquery.com/jquery-3.7.0.min.js"
     integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
@@ -191,63 +43,95 @@
 
     <!-- About Page -->
     <section class="page" id="about">
-      <h1>Tag Line</h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sapien vel tellus efficitur suscipit. Fusce
-        tempor libero sed metus rhoncus mollis vel id nulla. Donec sed tellus porta, pharetra risus eget, tincidunt sem.
-        Etiam ullamcorper libero id lacus lobortis, quis ultrices mauris cursus. Donec porttitor mattis vulputate.
-        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas pellentesque
-        porttitor consectetur. Sed turpis sapien, laoreet vel gravida id, rhoncus quis turpis. Donec bibendum commodo
-        nulla. Ut sodales erat vel velit viverra euismod. Ut eget libero sed odio aliquam fringilla sit amet nec ex.
-        Aenean faucibus eleifend libero, vitae ullamcorper mi. Mauris commodo nulla lacus, vitae semper justo congue
-        quis.
-      </p>
+      <h1 class="title">About</h1>
+      <div class="content">
+        <h3 class="tag-line">Rock and Roll all night! Party every day!</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sapien vel tellus efficitur suscipit. Fusce
+          tempor libero sed metus rhoncus mollis vel id nulla. Donec sed tellus porta, pharetra risus eget, tincidunt
+          sem.
+          Etiam ullamcorper libero id lacus lobortis, quis ultrices mauris cursus. Donec porttitor mattis vulputate.
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas pellentesque
+          porttitor consectetur. Sed turpis sapien, laoreet vel gravida id, rhoncus quis turpis. Donec bibendum commodo
+          nulla. Ut sodales erat vel velit viverra euismod. Ut eget libero sed odio aliquam fringilla sit amet nec ex.
+          Aenean faucibus eleifend libero, vitae ullamcorper mi. Mauris commodo nulla lacus, vitae semper justo congue
+          quis.
+        </p>
+      </div>
     </section>
 
     <section class="page" id="shows">
-      SHOWS
+      <h1 class="title">Shows</h1>
+      <div class="content">
+
+      </div>
     </section>
     <section class="page" id="news">
-      NEWS
+      <h1 class="title">News</h1>
+      <div class="content">
+
+      </div>
     </section>
 
     <!-- Music Page -->
     <section class="page" id="music">
-      <figure class="audio" id="music-player">
-        <figcaption id="song-title">01. Degenerated</figcaption>
-        <audio id="audio-player" controls>
-          <source src="./test.mp3" type="audio/mpeg">
-        </audio>
-        <div id="track-list">
-          <ul>
-            <li class="song">
-              01. Degenerated
-            </li>
-            <li class="song">
-              02. Regenerated
-            </li>
-            <li class="song">
-              03. Degenerated (Remix)
-            </li>
-          </ul>
-        </div>
-      </figure>
+      <h1 class="title">Music</h1>
+      <div class="content">
+        <figure class="audio" id="music-player">
+          <figcaption id="song-title">01. Degenerated</figcaption>
+          <audio id="audio-player" controls>
+            <source src="./test.mp3" type="audio/mpeg">
+          </audio>
+          <div id="track-list">
+            <ul>
+              <li class="song">
+                01. Degenerated
+              </li>
+              <li class="song">
+                02. Regenerated
+              </li>
+              <li class="song">
+                03. Degenerated (Remix)
+              </li>
+            </ul>
+          </div>
+        </figure>
+      </div>
     </section>
 
     <section class="page" id="video">
-      VIDEO
+      <h1>Video</h1>
+      <div class="content">
+        <figure class="video-container">
+          <iframe class="youtube-embed" width="560" height="315" src="https://www.youtube.com/embed/hhpOwuw-BsQ"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+          <p class="video-caption">Our newest music video for Song from Album.</p>
+        </figure>
+      </div>
+
     </section>
 
     <section class="page" id="feedback">
-      FEEDBACK
+      <h1 class="title">What our fans say</h1>
+      <div class="content">
+
+      </div>
     </section>
 
     <section class="page" id="store">
-      STORE
+      <h1 class="title">News</h1>
+      <div class="content">
+
+      </div>
     </section>
 
     <section class="page" id="contact">
-      CONTACT
+      <h1 class="title">News</h1>
+      <div class="content">
+
+      </div>
     </section>
 
     <footer>
