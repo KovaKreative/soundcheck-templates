@@ -98,7 +98,10 @@ a.button:hover {
 }
 
 .panel {
-  background-color: var(--neutral-1);
+  background: #a7cfdf;
+  background: -moz-linear-gradient(-60deg, var(--neutral-highlight-1) 0%, var(--neutral-shadow-1) 100%);
+  background: -webkit-linear-gradient(-60deg, var(--neutral-highlight-1) 0%, var(--neutral-shadow-1) 100%);
+  background: linear-gradient(150deg, var(--neutral-highlight-1) 0%, var(--neutral-shadow-1) 100%);
   color: var(--light-1);
   flex: 1;
   gap: 0.5em;
@@ -118,7 +121,7 @@ a.button:hover {
   overflow: hidden;
 }
 
-.band-logo > img {
+.band-logo>img {
   height: 100%;
   width: 100%;
   object-fit: scale-down;
@@ -322,7 +325,7 @@ audio::-webkit-media-controls-panel {
   box-shadow: 0px 5px 15px var(--neutral-1);
 }
 
-.video-container > iframe {
+.video-container>iframe {
   width: 100%;
   aspect-ratio: 16 / 9;
 }
@@ -431,10 +434,12 @@ img.photo.active {
     text-transform: uppercase;
     line-height: 1.4em;
   }
+
   img.band-logo {
     max-width: 90%;
     max-height: 80%;
   }
+
   .menu {
     flex: 1;
     flex-direction: row;
@@ -474,10 +479,12 @@ img.photo.active {
     text-transform: uppercase;
     line-height: 1.4em;
   }
+
   img.band-logo {
     max-width: 90%;
     max-height: 80%;
   }
+
   .menu {
     flex: 1;
     justify-content: space-between;
