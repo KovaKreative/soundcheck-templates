@@ -355,7 +355,7 @@
           $currentPage.fadeIn(400, () => {
             $('html, body').animate({
               scrollTop: $currentPage.offset().top
-            }, 500);
+            }, 300);
           });
         });
       }
@@ -365,6 +365,8 @@
         const height = $(window).height();
         if(width > 768 && width > height){
           setPage('about');
+          const menu = $(".menu-item");
+          $(menu[0]).addClass('active');
         }
       }();
 
@@ -382,10 +384,6 @@
         };
         placeHolderPlaylist.push(track);
       }
-
-      // $("#track-list").html(() => {
-      //   return placeHolderPlaylist.map((song, i) => `<li class="song" value="${i}">${i + 1}. ${song.title}</li>`).join('');
-      // });
 
       const $songTitle = $("#song-title");
       const $audio = $("#audio-player");
