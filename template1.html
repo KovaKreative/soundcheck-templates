@@ -187,7 +187,7 @@
                 01. Degenerated
               </li>
               <li class="song">
-                02. Regenerated
+                02. A really really long song title that the band should have trimmed down but they're just too damn lazy and dumb
               </li>
               <li class="song">
                 03. Degenerated (Remix)
@@ -364,9 +364,9 @@
         placeHolderPlaylist.push(track);
       }
 
-      $("#track-list").html(() => {
-        return placeHolderPlaylist.map((song, i) => `<li class="song" value="${i}">${i + 1}. ${song.title}</li>`).join('');
-      });
+      // $("#track-list").html(() => {
+      //   return placeHolderPlaylist.map((song, i) => `<li class="song" value="${i}">${i + 1}. ${song.title}</li>`).join('');
+      // });
 
       const $songTitle = $("#song-title");
       const $audio = $("#audio-player");

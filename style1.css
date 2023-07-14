@@ -2,9 +2,10 @@
   --light-1: #FFEEDD;
   --light-2: #FFDDAA;
 
-  --neutral-1: #667788;
-  --neutral-1-25: #667788BB;
-  --neutral-highlight-1: #99AABB;
+  --neutral-1: #426a92;
+  --neutral-1-25: #426a92BB;
+  --neutral-highlight-1: #6d90b3;
+  --neutral-shadow-1: #283e6d;
 
   --dark-1: #001133;
   --dark-highlight-1: #114488;
@@ -84,7 +85,7 @@ a:hover {
 a.button {
   background-color: var(--neutral-1);
   color: var(--light-1);
-  
+
   text-decoration: none;
   padding: 0.5em 2em;
   border-radius: 5px;
@@ -233,7 +234,7 @@ img.headshot {
   flex: 9;
 }
 
-.show-details > footer {
+.show-details>footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -244,27 +245,48 @@ img.headshot {
 }
 
 #music-player {
-  background-color: var(--neutral-1);
+  /* background-color:  */
+  background: var(--neutral-shadow-1);
+  background: -moz-linear-gradient(45deg, var(--neutral-highlight-1) 0%, var(--neutral-shadow-1) 50%, var(--neutral-1) 67%, var(--neutral-shadow-1) 88%, var(--neutral-shadow-1) 88%);
+  background: -webkit-linear-gradient(45deg, var(--neutral-highlight-1) 0%, var(--neutral-shadow-1) 50%, var(--neutral-1) 67%, var(--neutral-shadow-1) 88%, var(--neutral-shadow-1) 88%);
+  background: linear-gradient(45deg, var(--neutral-highlight-1) 0%, var(--neutral-shadow-1) 50%, var(--neutral-1) 67%, var(--neutral-shadow-1) 88%, var(--neutral-shadow-1) 88%);
+
   padding: 1em 0%;
   border-radius: 5px;
+  max-width: 30vw;
+  border: 1px solid var(--dark-1);
+  box-shadow: 0px 5px 10px var(--neutral-shadow-1);
+}
+
+#music-player>audio {
+  width: 100%;
 }
 
 #song-title {
   background-color: var(--dark-1);
   color: var(--neutral-1);
+  border: 1px solid var(--neutral-highlight-1);
   padding: 0.5em;
+  margin: 0.5em;
 }
 
 #track-list {
-  padding: 0% 0.5em;
-  max-height: 5em;
+  background-color: var(--dark-1);
+  color: var(--neutral-1-25);
+  border: 1px solid var(--neutral-highlight-1);
+  padding: 0.5em;
+  margin: 0.5em;
+  min-height: 10em;
+  max-height: 15em;
   overflow: hidden;
   overflow-y: scroll;
 }
 
 .song {
+  height: 1em;
   list-style: none;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .song.playing {
@@ -283,7 +305,8 @@ img.headshot {
   box-shadow: 0px 5px 15px var(--neutral-1);
 }
 
-.video-list, .music-links {
+.video-list,
+.music-links {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -309,9 +332,7 @@ img.photo:hover {
   cursor: pointer;
 }
 
-img.photo.active {
-  
-}
+img.photo.active {}
 
 .testimonial {
   background-color: var(--neutral-1-25);
