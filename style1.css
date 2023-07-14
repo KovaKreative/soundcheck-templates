@@ -1,6 +1,6 @@
 :root {
-  --light-1: #FFEEDD;
-  --light-2: #FFDDAA;
+  --light-1: #e2eaf6;
+  --light-2: #aab2be;
 
   --neutral-1: #426a92;
   --neutral-1-25: #426a92BB;
@@ -19,6 +19,7 @@ body {
   height: 100vh;
   width: 100vw;
   overflow: scroll;
+  transition: display 1s linear;
 }
 
 main {
@@ -41,8 +42,6 @@ section {
 
 footer {
   flex-shrink: 1;
-  /* position: absolute;
-  bottom: 1em; */
 }
 
 h1 {
@@ -98,29 +97,35 @@ a.button:hover {
   transform: scale(1.1);
 }
 
-
 .panel {
   background-color: var(--neutral-1);
-  color: var(--light-2);
-
+  color: var(--light-1);
   flex: 1;
+  gap: 0.5em;
   padding: 2em 1em;
-
   font-size: 30px;
-  /* font-weight: bold; */
   text-transform: uppercase;
-  line-height: 2em;
-
+  line-height: 1.5em;
+  max-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
 .band-logo {
+  flex-shrink: 1;
   align-self: center;
+  overflow: hidden;
+}
+
+.band-logo > img {
+  height: 100%;
+  width: 100%;
+  object-fit: scale-down;
 }
 
 .menu {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -152,6 +157,7 @@ a.button:hover {
 
 .page>.title {
   flex: 1;
+  text-align: center;
 }
 
 .title {
@@ -205,6 +211,7 @@ img.headshot {
 
 .concert {
   display: flex;
+  align-items: center;
   gap: 1rem;
 }
 
@@ -238,6 +245,8 @@ img.headshot {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
 }
 
 .headline {
@@ -260,6 +269,11 @@ img.headshot {
 
 #music-player>audio {
   width: 100%;
+}
+
+audio::-webkit-media-controls-panel {
+  background: var(--neutral-highlight-1);
+  box-shadow: inset 0px 0px 40px #FFF;
 }
 
 #song-title {
@@ -305,8 +319,14 @@ img.headshot {
   box-shadow: 0px 5px 15px var(--neutral-1);
 }
 
+.video-container > iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
 .video-list,
 .music-links {
+  margin-top: 1em;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -320,19 +340,36 @@ img.headshot {
   flex-wrap: wrap;
 }
 
+#image-viewer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #0008;
+}
+
 img.photo {
-  max-width: 20%;
-  min-width: 200px;
+  width: 20%;
+  width: 200px;
   aspect-ratio: 4 / 3;
   border: 2px solid var(--dark-1);
   object-fit: cover;
+
 }
 
 img.photo:hover {
   cursor: pointer;
 }
 
-img.photo.active {}
+img.photo.active {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: scale-down;
+}
 
 .testimonial {
   background-color: var(--neutral-1-25);
@@ -361,6 +398,7 @@ img.photo.active {}
   display: flex;
   justify-content: space-around;
   gap: 2em;
+  flex-wrap: wrap;
 }
 
 .lead {
@@ -369,4 +407,83 @@ img.photo.active {}
 
 .hidden {
   display: none;
+}
+
+@media (max-height: 768px) and (orientation: landscape) {
+
+  body {
+    color: var(--dark-1);
+    background-color: var(--light-1);
+    display: flex;
+    height: auto;
+    width: 100vw;
+    overflow: scroll;
+    flex-direction: column;
+  }
+
+  .panel {
+    padding: 1em 1em;
+    flex-direction: column;
+    font-size: 24px;
+    text-transform: uppercase;
+    line-height: 1.4em;
+  }
+  img.band-logo {
+    max-width: 90%;
+    max-height: 80%;
+  }
+  .menu {
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .menu-item {
+    flex-shrink: 1;
+    list-style: none;
+    transition: transform 0.2s ease-out;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+
+  body {
+    color: var(--dark-1);
+    background-color: var(--light-1);
+    /* display: block; */
+    flex-direction: column;
+    overflow: scroll;
+
+    height: auto;
+
+    overflow: scroll;
+  }
+
+  main {
+    min-height: 100vh;
+  }
+
+  .panel {
+    padding: 1em 1em;
+    flex-direction: column;
+    font-size: 26px;
+    text-transform: uppercase;
+    line-height: 1.4em;
+  }
+  img.band-logo {
+    max-width: 90%;
+    max-height: 80%;
+  }
+  .menu {
+    flex: 1;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .menu-item {
+    flex-shrink: 1;
+    list-style: none;
+    transition: transform 0.2s ease-out;
+  }
 }

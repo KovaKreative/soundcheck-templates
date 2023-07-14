@@ -22,22 +22,20 @@
 <body>
   <section class="panel">
     <div class="band-logo">
-      <a href="/"><img src="https://placehold.co/1024x256?text=Spinal%20Tap" alt="Band Logo"></a>
+      <img src="https://placehold.co/1024x1024?text=Spinal%20Tap" alt="Band Logo">
     </div>
-    <nav>
-      <ul class="menu">
-        <li class="menu-item active" data-page="about">About</li>
-        <li class="menu-item" data-page="shows">Shows</li>
-        <li class="menu-item" data-page="news">News</li>
-        <!-- <li class="menu-item">Press Kit</li> -->
-        <li class="menu-item" data-page="music">Music</li>
-        <li class="menu-item" data-page="video">Video</li>
-        <li class="menu-item" data-page="photos">Photos</li>
-        <li class="menu-item" data-page="feedback">Feedback</li>
-        <li class="menu-item" data-page="store">Store</li>
-        <li class="menu-item" data-page="contact">Contact</li>
-      </ul>
-    </nav>
+    <ul class="menu">
+      <li class="menu-item" data-page="about">About</li>
+      <li class="menu-item" data-page="shows">Shows</li>
+      <li class="menu-item" data-page="news">News</li>
+      <!-- <li class="menu-item">Press Kit</li> -->
+      <li class="menu-item" data-page="music">Music</li>
+      <li class="menu-item" data-page="video">Video</li>
+      <li class="menu-item" data-page="photos">Photos</li>
+      <li class="menu-item" data-page="feedback">Feedback</li>
+      <li class="menu-item" data-page="store">Store</li>
+      <li class="menu-item" data-page="contact">Contact</li>
+    </ul>
   </section>
 
   <main>
@@ -187,7 +185,8 @@
                 01. Degenerated
               </li>
               <li class="song">
-                02. A really really long song title that the band should have trimmed down but they're just too damn lazy and dumb
+                02. A really really long song title that the band should have trimmed down but they're just too damn
+                lazy and dumb
               </li>
               <li class="song">
                 03. Degenerated (Remix)
@@ -211,7 +210,7 @@
       <div class="content">
         <figure class="video-container">
           <h4>Featured Video</h4>
-          <iframe class="youtube-embed" width="560" height="315" src="https://www.youtube.com/embed/hhpOwuw-BsQ"
+          <iframe class="youtube-embed" src="https://www.youtube.com/embed/hhpOwuw-BsQ"
             title="YouTube video player" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
@@ -236,9 +235,9 @@
     </section>
 
     <section class="page" id="photos">
-      <h1>Photos</h1>
-
+      <h1 class="title">Photos</h1>
       <div class="content">
+        <div id="image-viewer" style="display: none"></div>
         <div class="gallery">
           <img class="photo" src="./concert.jpg">
           <img class="photo" src="./concert.jpg">
@@ -303,7 +302,7 @@
             Toronto, ON A1B 2C3
           </div>
           <div class="contact-info">
-            <b>Spinal Tap</b>
+            <b>Spinal Tap</b><br>
             spinal.tap@stonehenge.com<br>
             416 555 5555
           </div>
@@ -338,18 +337,38 @@
       $page.hide();
 
       // Set default page
-      let $currentPage = $(`#about`);
+      let $currentPage = null;
 
       function setPage(page) {
+        if(!$currentPage) {
+          $currentPage = $(`#${page}`);
+          $currentPage.fadeIn(400, () => {
+            $('html, body').animate({
+              scrollTop: $currentPage.offset().top
+            }, 500);
+          });
+          return;
+        }
         // $currentPage.attr('hidden', true);
         $currentPage.fadeOut(200, function() {
           $currentPage = $(`#${page}`);
-          $currentPage.fadeIn(400);
+          $currentPage.fadeIn(400, () => {
+            $('html, body').animate({
+              scrollTop: $currentPage.offset().top
+            }, 500);
+          });
         });
-
       }
 
-      setPage('about');
+      const initialize = function() {
+        const width = $(window).width();
+        const height = $(window).height();
+        if(width > 768 && width > height){
+          setPage('about');
+        }
+      }();
+
+
 
       // Music functions
 
@@ -400,6 +419,18 @@
         // Switch page
         const page = $(event.target).attr('data-page');
         setPage(page);
+      });
+
+      const $photo = $(".photo");
+      const $imageViewer = $("#image-viewer");
+
+      $photo.on('click', event => {
+        $this = $(event.target).toggleClass('active');
+        $imageViewer.toggle();
+      });
+      $imageViewer.on('click', event => {
+        $imageViewer.hide();
+        $photo.removeClass('active');
       });
 
     });
