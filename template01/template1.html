@@ -11,6 +11,8 @@
   <!-- <link href="css/style.css" rel="stylesheet"> -->
   <!-- Reset CSS for all browsers -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css">
+  <!-- <link href="https://unpkg.com/sanitize.css" rel="stylesheet" />
+  <link href="https://unpkg.com/sanitize.css/typography.css" rel="stylesheet" /> -->
   <link rel="stylesheet" href="./style1.css">
   <script src="https://kit.fontawesome.com/3a5c809ac6.js" crossorigin="anonymous"></script>
 
@@ -22,7 +24,9 @@
 <body>
   <section class="panel">
     <div class="band-logo">
-      <img class="menu-item" data-page="home" src="https://placehold.co/1024x1024?text=Spinal%20Tap" alt="Band Logo">
+      <img class="menu-item" data-page="home"
+        src="https://soundcheckstor.blob.core.windows.net/images/att-band-62-4d6f9d05-7326-4281-a587-c51447a4d92a-20230122-0136072121.jpg"
+        alt="Band Logo">
     </div>
     <ul class="menu">
       <li class="menu-item nav-item" data-page="about">About</li>
@@ -36,67 +40,35 @@
       <li class="menu-item nav-item" data-page="store">Store</li>
       <li class="menu-item nav-item" data-page="contact">Contact</li>
     </ul>
+    <ul class="social">
+      <li class="social-link" title="Twitter"><a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+      </li>
+      <li class="social-link" title="Facebook"><a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+      </li>
+      <li class="social-link" title="Instagram"><a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+      </li>
+      <li class="social-link" title="Bandcamp"><a href="#" target="_blank"><i class="fa-brands fa-bandcamp"></i></a>
+      </li>
+    </ul>
   </section>
 
   <main>
     <!-- Home Page -->
     <section class="page" id="home">
       <h1 class="title">Spinal Tap</h1>
-      <h4 class="headline"></h4>
       <div class="content">
-        <p class="artist-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sapien vel tellus efficitur suscipit. Fusce
-          tempor libero sed metus rhoncus mollis vel id nulla. Donec sed tellus porta, pharetra risus eget, tincidunt
-          sem.
-          Etiam ullamcorper libero id lacus lobortis, quis ultrices mauris cursus. Donec porttitor mattis vulputate.
-          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas pellentesque
-          porttitor consectetur. Sed turpis sapien, laoreet vel gravida id, rhoncus quis turpis. Donec bibendum commodo
-          nulla. Ut sodales erat vel velit viverra euismod. Ut eget libero sed odio aliquam fringilla sit amet nec ex.
-          Aenean faucibus eleifend libero, vitae ullamcorper mi. Mauris commodo nulla lacus, vitae semper justo congue
-          quis.
-        </p>
-        <p class="cover-band-description"><i>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sapien vel tellus efficitur suscipit. Fusce
-            tempor libero sed metus rhoncus mollis vel id nulla. Donec sed tellus porta, pharetra risus eget, tincidunt
-            sem.
-          </i></p>
-        <h3 class="title">The Band</h3>
-        <figure class="bio">
-          <img class="headshot" src="./headshot.jpg">
-          <div class="bio-text">
-            <h4 class="member-name">David St. Hubbins</h4>
-            <h5 class="member-instrument">Vocals, Rhythm Guitar</h5>
-            <p> Etiam ullamcorper libero id lacus lobortis, quis ultrices mauris cursus. Donec porttitor mattis
-              vulputate.
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas
-              pellentesque porttitor consectetur.
-              Sed turpis sapien, laoreet vel gravida id, rhoncus quis turpis. Donec bibendum
-              commodo nulla.</p>
-          </div>
-        </figure>
-        <hr>
-        <figure class="bio">
-          <img class="headshot" src="./headshot.jpg">
-          <div class="bio-text">
-            <h4>David St. Hubbins</h4>
-            <h5>Vocals, Rhythm Guitar</h5>
-            <p> Etiam ullamcorper libero id lacus lobortis, quis ultrices mauris cursus. Donec porttitor mattis
-              vulputate.
-              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas
-              pellentesque porttitor consectetur.
-              Sed turpis sapien, laoreet vel gravida id, rhoncus quis turpis. Donec bibendum
-              commodo nulla.</p>
-          </div>
-        </figure>
+        <h4 class="headline">This band goes to 11</h4>
+        <img
+          src="https://soundcheckstor.blob.core.windows.net/images/att-band-62-dbab671c-186d-4158-82d2-29a7e0abcd47-20220705-0549575251.jpg"
+          alt="Featured Photo" />
       </div>
     </section>
-    
+
     <!-- About Page -->
     <section class="page" id="about">
-      <h1 class="title">Spinal Tap</h1>
-      <h4 class="headline"></h4>
+      <h1 class="title">About</h1>
       <div class="content">
-        <p class="artist-description">
+        <p class="description" id="artist-description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sapien vel tellus efficitur suscipit. Fusce
           tempor libero sed metus rhoncus mollis vel id nulla. Donec sed tellus porta, pharetra risus eget, tincidunt
           sem.
@@ -107,7 +79,7 @@
           Aenean faucibus eleifend libero, vitae ullamcorper mi. Mauris commodo nulla lacus, vitae semper justo congue
           quis.
         </p>
-        <p class="cover-band-description"><i>
+        <p class="description" id="cover-band-description"><i>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sapien vel tellus efficitur suscipit. Fusce
             tempor libero sed metus rhoncus mollis vel id nulla. Donec sed tellus porta, pharetra risus eget, tincidunt
             sem.
@@ -261,8 +233,8 @@
       <div class="content">
         <figure class="video-container">
           <h4>Featured Video</h4>
-          <iframe class="youtube-embed" src="https://www.youtube.com/embed/hhpOwuw-BsQ"
-            title="YouTube video player" frameborder="0"
+          <iframe class="youtube-embed" src="https://www.youtube.com/embed/hhpOwuw-BsQ" title="YouTube video player"
+            frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
           <p class="video-caption">Our newest music video for Song from Album.</p>
@@ -303,7 +275,6 @@
           <img class="photo" src="./concert.jpg">
           <img class="photo" src="./concert.jpg">
           <img class="photo" src="./concert.jpg">
-
         </div>
       </div>
 
@@ -362,18 +333,7 @@
     </section>
 
     <footer>
-      <div class="social">
-        <ul>
-          <li class="social-link" title="Twitter"><a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-          </li>
-          <li class="social-link" title="Facebook"><a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-          </li>
-          <li class="social-link" title="Instagram"><a href="#" target="_blank"><i
-                class="fa-brands fa-instagram"></i></a></li>
-          <li class="social-link" title="Bandcamp"><a href="#" target="_blank"><i class="fa-brands fa-bandcamp"></i></a>
-          </li>
-        </ul>
-      </div>
+      Powered by <a href="https://soundcheck12.co/App/Fan">SoundCheck</a>
     </footer>
   </main>
 
@@ -386,12 +346,14 @@
 
       const $page = $('.page');
       $page.hide();
-
+      
       // Set default page
-      let $currentPage = null;
+      let $currentPage = $(`#home`);
+      
+      $($currentPage).show();
 
       function setPage(page) {
-        if(!$currentPage) {
+        if (!$currentPage) {
           $currentPage = $(`#${page}`);
           $currentPage.fadeIn(400, () => {
             $('html, body').animate({
@@ -410,18 +372,6 @@
           });
         });
       }
-
-      const initialize = function() {
-        const width = $(window).width();
-        const height = $(window).height();
-        if(width > 768 && width > height){
-          setPage('about');
-          const menu = $(".menu-item");
-          $(menu[0]).addClass('active');
-        }
-      }();
-
-
 
       // Music functions
 
