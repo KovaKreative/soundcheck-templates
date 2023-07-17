@@ -22,24 +22,75 @@
 <body>
   <section class="panel">
     <div class="band-logo">
-      <img src="https://placehold.co/1024x1024?text=Spinal%20Tap" alt="Band Logo">
+      <img class="menu-item" data-page="home" src="https://placehold.co/1024x1024?text=Spinal%20Tap" alt="Band Logo">
     </div>
     <ul class="menu">
-      <li class="menu-item" data-page="about">About</li>
-      <li class="menu-item" data-page="shows">Shows</li>
-      <li class="menu-item" data-page="news">News</li>
+      <li class="menu-item nav-item" data-page="about">About</li>
+      <li class="menu-item nav-item" data-page="shows">Shows</li>
+      <li class="menu-item nav-item" data-page="news">News</li>
       <!-- <li class="menu-item">Press Kit</li> -->
-      <li class="menu-item" data-page="music">Music</li>
-      <li class="menu-item" data-page="video">Video</li>
-      <li class="menu-item" data-page="photos">Photos</li>
-      <li class="menu-item" data-page="feedback">Feedback</li>
-      <li class="menu-item" data-page="store">Store</li>
-      <li class="menu-item" data-page="contact">Contact</li>
+      <li class="menu-item nav-item" data-page="music">Music</li>
+      <li class="menu-item nav-item" data-page="video">Video</li>
+      <li class="menu-item nav-item" data-page="photos">Photos</li>
+      <li class="menu-item nav-item" data-page="feedback">Feedback</li>
+      <li class="menu-item nav-item" data-page="store">Store</li>
+      <li class="menu-item nav-item" data-page="contact">Contact</li>
     </ul>
   </section>
 
   <main>
-
+    <!-- Home Page -->
+    <section class="page" id="home">
+      <h1 class="title">Spinal Tap</h1>
+      <h4 class="headline"></h4>
+      <div class="content">
+        <p class="artist-description">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sapien vel tellus efficitur suscipit. Fusce
+          tempor libero sed metus rhoncus mollis vel id nulla. Donec sed tellus porta, pharetra risus eget, tincidunt
+          sem.
+          Etiam ullamcorper libero id lacus lobortis, quis ultrices mauris cursus. Donec porttitor mattis vulputate.
+          Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas pellentesque
+          porttitor consectetur. Sed turpis sapien, laoreet vel gravida id, rhoncus quis turpis. Donec bibendum commodo
+          nulla. Ut sodales erat vel velit viverra euismod. Ut eget libero sed odio aliquam fringilla sit amet nec ex.
+          Aenean faucibus eleifend libero, vitae ullamcorper mi. Mauris commodo nulla lacus, vitae semper justo congue
+          quis.
+        </p>
+        <p class="cover-band-description"><i>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut sapien vel tellus efficitur suscipit. Fusce
+            tempor libero sed metus rhoncus mollis vel id nulla. Donec sed tellus porta, pharetra risus eget, tincidunt
+            sem.
+          </i></p>
+        <h3 class="title">The Band</h3>
+        <figure class="bio">
+          <img class="headshot" src="./headshot.jpg">
+          <div class="bio-text">
+            <h4 class="member-name">David St. Hubbins</h4>
+            <h5 class="member-instrument">Vocals, Rhythm Guitar</h5>
+            <p> Etiam ullamcorper libero id lacus lobortis, quis ultrices mauris cursus. Donec porttitor mattis
+              vulputate.
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas
+              pellentesque porttitor consectetur.
+              Sed turpis sapien, laoreet vel gravida id, rhoncus quis turpis. Donec bibendum
+              commodo nulla.</p>
+          </div>
+        </figure>
+        <hr>
+        <figure class="bio">
+          <img class="headshot" src="./headshot.jpg">
+          <div class="bio-text">
+            <h4>David St. Hubbins</h4>
+            <h5>Vocals, Rhythm Guitar</h5>
+            <p> Etiam ullamcorper libero id lacus lobortis, quis ultrices mauris cursus. Donec porttitor mattis
+              vulputate.
+              Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas
+              pellentesque porttitor consectetur.
+              Sed turpis sapien, laoreet vel gravida id, rhoncus quis turpis. Donec bibendum
+              commodo nulla.</p>
+          </div>
+        </figure>
+      </div>
+    </section>
+    
     <!-- About Page -->
     <section class="page" id="about">
       <h1 class="title">Spinal Tap</h1>
@@ -407,6 +458,7 @@
 
       queueFirstSong(placeHolderPlaylist);
 
+      //Menu options
       const $menuItem = $(".menu-item");
 
       $menuItem.on('click', function(event) {
