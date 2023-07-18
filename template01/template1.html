@@ -198,19 +198,16 @@
       <h1 class="title">Music</h1>
       <div class="content">
         <figure class="audio" id="music-player">
-          <figcaption id="song-title">01. Degenerated</figcaption>
+          <figcaption id="current-track"><img id="album-art" src="headshot.jpg" /><span id="song-title">Song
+              Title</span></figcaption>
           <audio id="audio-player" controls>
             <source src="./test.mp3" type="audio/mpeg">
           </audio>
           <div id="track-list">
             <ul>
-              <li class="song">
-                01. Degenerated
-              </li>
             </ul>
           </div>
         </figure>
-
         <div class="music-links lead">
           <a href="https://www.youtube.com/watch?v=hhpOwuw-BsQ" target="_blank"><i class="fa-brands fa-bandcamp"></i>
             <span>Bandcamp Page</span></a>
@@ -394,18 +391,31 @@
         albumArt: `https://soundcheckstor.blob.core.windows.net/images/att-band-62-53dc7961-8e03-4039-a925-653ee8401e25-20221223-0246168062.jpg`
       });
 
+      // Initialize playlist
 
+      var trackElements = placeHolderPlaylist.map(track => {
+        const song = document.createElement('li');
+        song.className = "song";
+        song.innerHTML = track.title;
+        song.setAttribute('data-art', track.albumArt);
+        song.setAttribute('data-src', track.fileName);
+        return song;
+      });
+      $('#track-list').append(trackElements);
 
       const $songTitle = $("#song-title");
+      const $albumArt = $("#album-art");
       const $audio = $("#audio-player");
       const $song = $(".song");
 
       $song.on('click', function(e) {
+        const song = e.target;
         $audio[0].pause();
         $song.removeClass('playing');
         $(e.target).addClass('playing');
-        $songTitle.html(`${placeHolderPlaylist[e.target.value].title}`);
-        $audio.find('source').attr('src', placeHolderPlaylist[e.target.value].fileName);
+        $songTitle.html(`${song.innerHTML}`);
+        $albumArt.attr('src', song.getAttribute('data-art'));
+        $audio.find('source').attr('src', song.getAttribute('data-src'));
         $audio[0].load();
         $audio[0].oncanplaythrough = $audio[0].play();
       });
@@ -414,6 +424,10 @@
         $($song[0]).addClass('playing');
         $songTitle.html(`${playlist[0].title}`);
         $audio.find('source').attr('src', playlist[0].fileName);
+      };
+
+      const queueSong = function(track) {
+
       };
 
       queueFirstSong(placeHolderPlaylist);
