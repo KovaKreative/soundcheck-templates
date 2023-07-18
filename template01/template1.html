@@ -422,12 +422,10 @@
 
       const queueFirstSong = function(playlist) {
         $($song[0]).addClass('playing');
-        $songTitle.html(`${playlist[0].title}`);
-        $audio.find('source').attr('src', playlist[0].fileName);
-      };
-
-      const queueSong = function(track) {
-
+        $songTitle.html(`${$song[0].innerHTML}`);
+        $albumArt.attr('src', $song[0].getAttribute('data-art'));
+        $audio.find('source').attr('src', $song[0].getAttribute('data-src'));
+        $audio[0].load();
       };
 
       queueFirstSong(placeHolderPlaylist);

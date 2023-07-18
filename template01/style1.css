@@ -336,7 +336,7 @@ audio::-webkit-media-controls-panel {
   gap: 1rem;
 }
 
-#current-track > img {
+#current-track>img {
   width: 100px;
   aspect-ratio: 1 / 1;
   object-fit: cover;
@@ -355,10 +355,11 @@ audio::-webkit-media-controls-panel {
 }
 
 .song {
-  height: 1em;
+  height: 1.3em;
   list-style: none;
   cursor: pointer;
-  overflow: hidden;
+  overflow-y: visible;
+  overflow-x: hidden;
 }
 
 .song.playing {
