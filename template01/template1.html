@@ -207,13 +207,6 @@
               <li class="song">
                 01. Degenerated
               </li>
-              <li class="song">
-                02. A really really long song title that the band should have trimmed down but they're just too damn
-                lazy and dumb
-              </li>
-              <li class="song">
-                03. Degenerated (Remix)
-              </li>
             </ul>
           </div>
         </figure>
@@ -346,23 +339,16 @@
 
       const $page = $('.page');
       $page.hide();
-      
+
       // Set default page
       let $currentPage = $(`#home`);
-      
+
       $($currentPage).show();
 
       function setPage(page) {
-        if (!$currentPage) {
-          $currentPage = $(`#${page}`);
-          $currentPage.fadeIn(400, () => {
-            $('html, body').animate({
-              scrollTop: $currentPage.offset().top
-            }, 500);
-          });
+        if ($currentPage.attr('id') === page) {
           return;
         }
-        // $currentPage.attr('hidden', true);
         $currentPage.fadeOut(200, function() {
           $currentPage = $(`#${page}`);
           $currentPage.fadeIn(400, () => {
@@ -377,14 +363,38 @@
 
       let placeHolderPlaylist = [];
 
-      for (let i = 0; i < 7; i++) {
-        const track = {
-          id: i,
-          title: `Song Title ${i}`,
-          fileName: `./test.mp3`
-        };
-        placeHolderPlaylist.push(track);
-      }
+      placeHolderPlaylist.push({
+        id: placeHolderPlaylist.length,
+        title: `Song Title ${placeHolderPlaylist.length}`,
+        fileName: `https://soundcheckstor.blob.core.windows.net/audio/att-band-62-e7c7225c-ad8d-4077-8bdd-3264436dbaf2-20220720-0159325904.mp3`,
+        albumArt: `https://soundcheckstor.blob.core.windows.net/images/att-band-62-a95456d2-043a-4fad-a144-043e463befb9-20221214-0805046694.jpg`
+      });
+      placeHolderPlaylist.push({
+        id: placeHolderPlaylist.length,
+        title: `Song Title ${placeHolderPlaylist.length}`,
+        fileName: `https://soundcheckstor.blob.core.windows.net/audio/att-band-62-2ebbcae1-068e-4f80-a3ec-22b075d5e8d8-20220720-0202471798.mp3`,
+        albumArt: `https://soundcheckstor.blob.core.windows.net/images/att-band-62-ab19ee7a-5b55-46d7-83fd-61a5f209e2b8-20221223-0245462647.jpg`
+      });
+      placeHolderPlaylist.push({
+        id: placeHolderPlaylist.length,
+        title: `Song Title ${placeHolderPlaylist.length}`,
+        fileName: `https://soundcheckstor.blob.core.windows.net/audio/att-band-62-6f48fd98-aefa-4a2e-bc01-e46f92b15b04-20220620-0555184077.wav`,
+        albumArt: `https://soundcheckstor.blob.core.windows.net/images/att-band-62-10ec8087-8ad6-4a40-9cdf-09b63f003272-20221214-0805484786.jpg`
+      });
+      placeHolderPlaylist.push({
+        id: placeHolderPlaylist.length,
+        title: `Song Title ${placeHolderPlaylist.length}`,
+        fileName: `https://soundcheckstor.blob.core.windows.net/audio/att-band-62-b60613f5-a47a-4651-9072-3b588d65e9ba-20230103-1135249452.mp3`,
+        albumArt: `https://soundcheckstor.blob.core.windows.net/images/att-band-62-8ab1f206-3d4b-4dc6-a4ea-58a0694bfd8f-20221223-0246060203.jpg`
+      });
+      placeHolderPlaylist.push({
+        id: placeHolderPlaylist.length,
+        title: `Song Title ${placeHolderPlaylist.length}`,
+        fileName: `https://soundcheckstor.blob.core.windows.net/audio/att-band-62-652ada70-38fa-47cf-9ea3-ef06c50bf0dd-20220720-0213168694.mp3`,
+        albumArt: `https://soundcheckstor.blob.core.windows.net/images/att-band-62-53dc7961-8e03-4039-a925-653ee8401e25-20221223-0246168062.jpg`
+      });
+
+
 
       const $songTitle = $("#song-title");
       const $audio = $("#audio-player");
