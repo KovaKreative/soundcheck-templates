@@ -222,27 +222,30 @@
 
       <div class="content">
         <figure class="video-container">
-          <h4>Featured Video</h4>
-          <iframe class="youtube-embed" src="https://www.youtube.com/embed/hhpOwuw-BsQ" title="YouTube video player"
+          <h4 id="video-title">Featured Video</h4>
+          <iframe id="youtube-embed" src="https://www.youtube.com/embed/hhpOwuw-BsQ" title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
-          <p class="video-caption">Our newest music video for Song from Album.</p>
+          <p id="video-caption">Our newest music video for Song from Album.</p>
         </figure>
-
-        <div class="video-list lead">
-          <a href="https://www.youtube.com/watch?v=hhpOwuw-BsQ" target="_blank"><i class="fa-brands fa-youtube"></i>
-            <span>Video Title</span></a>
-          <a href="https://www.youtube.com/watch?v=hhpOwuw-BsQ" target="_blank"><i class="fa-brands fa-youtube"></i>
-            <span>Longer Video Title</span></a>
-          <a href="https://www.youtube.com/watch?v=hhpOwuw-BsQ" target="_blank"><i class="fa-brands fa-youtube"></i>
-            <span>Really Really Really Really Really Really Really Really Really Really Really Long Video
-              Title</span></a>
-          <a href="https://www.youtube.com/watch?v=hhpOwuw-BsQ" target="_blank"><i class="fa-brands fa-youtube"></i>
-            <span>Video Title</span></a>
-          <a href="https://www.youtube.com/watch?v=hhpOwuw-BsQ" target="_blank"><i class="fa-brands fa-youtube"></i>
-            <span>Video Title</span></a>
-        </div>
+        <ul id="video-list" class="lead">
+          <li>
+            <a class="video-link" data-video="https://www.youtube.com/watch?v=videoTitle&t=5s">
+              Video Title
+            </a>
+          </li>
+          <li>
+            <a class="video-link" data-video="https://www.youtube.com/watch?v=anotherTitle&t=5s">
+              Video Title
+            </a>
+          </li>
+          <li>
+            <a class="video-link" data-video="https://www.youtube.com/watch?v=anotherWon">
+              Video Title
+            </a>
+          </li>
+        </ul>
       </div>
 
     </section>
@@ -393,7 +396,7 @@
 
       // Initialize playlist
 
-      var trackElements = placeHolderPlaylist.map(track => {
+      const trackElements = placeHolderPlaylist.map(track => {
         const song = document.createElement('li');
         song.className = "song";
         song.innerHTML = track.title;
@@ -430,7 +433,77 @@
 
       queueFirstSong(placeHolderPlaylist);
 
-      //Menu options
+
+      // Video Functions
+      const youtubeLinks = [];
+
+      youtubeLinks.push({
+        title: "Video Title",
+        url: "https://www.youtube.com/watch?v=hhpOwuw-BsQ",
+        caption: "Our newest video, ain't it spiffy?"
+      });
+      youtubeLinks.push({
+        title: "Video Title",
+        url: "https://www.youtube.com/watch?v=DP6ds12t0tg",
+        caption: ""
+      });
+      youtubeLinks.push({
+        title: "Video Title",
+        url: "https://www.youtube.com/watch?v=hhpOwuw-BsQ",
+        caption: "This video sucks!"
+      });
+      youtubeLinks.push({
+        title: "Video Title",
+        url: "https://www.youtube.com/watch?v=DP6ds12t0tg",
+        caption: "What even is this?"
+      });
+
+      const videoListElements = youtubeLinks.map(video => {
+        const listItem = document.createElement('li');
+        const link = document.createElement('a');
+        link.className = 'video-link';
+        link.setAttribute('data-title', video.title);
+        link.setAttribute('data-video', video.url);
+        link.setAttribute('data-caption', video.caption);
+        link.innerHTML = video.title;
+
+        listItem.append(link);
+        return listItem;
+      });
+      // console.log(videoListElements);
+      $('#video-list').html(videoListElements);
+
+      const $videoLinks = $(".video-link");
+
+      const setVideo = function(videoObject) {
+        const { title, url, caption } = videoObject;
+        const youTubeEmbed = 'https://www.youtube.com/embed/';
+        const videoIndex = url.search('v=');
+        const params = url.slice(videoIndex + 2);
+        const endOfVideoIndex = params.search('&');
+        let videoId = params;
+
+        if (endOfVideoIndex >= 0) {
+          videoId = params.slice(0, endOfVideoIndex);
+        }
+
+        $('#video-title').html(title);
+        $('#youtube-embed').attr('src', youTubeEmbed + videoId);
+        $('#video-caption').html(caption);
+      };
+
+      setVideo(youtubeLinks[0]);
+
+      $videoLinks.on('click', e => {
+        const title = e.target.getAttribute('data-title');
+        const url = e.target.getAttribute('data-video');
+        const caption = e.target.getAttribute('data-caption');
+
+        setVideo({ title, url, caption });
+
+      });
+
+      // Menu options
       const $menuItem = $(".menu-item");
 
       $menuItem.on('click', function(event) {

@@ -81,6 +81,7 @@ a {
 
 a:hover {
   color: var(--dark-highlight-2);
+  cursor: pointer;
 }
 
 a.button {
