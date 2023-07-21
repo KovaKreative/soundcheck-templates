@@ -304,7 +304,6 @@ img.headshot {
 }
 
 #music-player {
-  /* background-color:  */
   background: var(--neutral-shadow-1);
   background: -moz-linear-gradient(45deg, var(--neutral-highlight-1) 0%, var(--neutral-shadow-1) 50%, var(--neutral-1) 67%, var(--neutral-shadow-1) 88%, var(--neutral-shadow-1) 88%);
   background: -webkit-linear-gradient(45deg, var(--neutral-highlight-1) 0%, var(--neutral-shadow-1) 50%, var(--neutral-1) 67%, var(--neutral-shadow-1) 88%, var(--neutral-shadow-1) 88%);
@@ -329,6 +328,7 @@ audio::-webkit-media-controls-panel {
 #current-track {
   background-color: var(--light-1-25);
   border: 1px solid var(--neutral-highlight-1);
+  border-bottom: 0px;
   padding: 0.5em;
   font-size: x-large;
   display: flex;
