@@ -1,5 +1,6 @@
 :root {
   --light-1: #e2eaf6;
+  --light-1-25: #e2eaf644;
   --light-2: #aab2be;
 
   --neutral-1: #426a92;
@@ -310,7 +311,7 @@ img.headshot {
   background: linear-gradient(45deg, var(--neutral-highlight-1) 0%, var(--neutral-shadow-1) 50%, var(--neutral-1) 67%, var(--neutral-shadow-1) 88%, var(--neutral-shadow-1) 88%);
   width: 50rem;
   max-width: 100%;
-  padding: 1em 0%;
+  padding: 0.5rem;
   border-radius: 5px;
   border: 1px solid var(--dark-1);
   box-shadow: 0px 5px 10px var(--neutral-shadow-1);
@@ -326,15 +327,21 @@ audio::-webkit-media-controls-panel {
 }
 
 #current-track {
-  background-color: var(--dark-1);
-  color: var(--neutral-1);
+  background-color: var(--light-1-25);
   border: 1px solid var(--neutral-highlight-1);
   padding: 0.5em;
-  margin: 0.5em;
   font-size: x-large;
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 1rem;
+}
+
+#music-dashboard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: stretch;
 }
 
 #current-track>img {
@@ -348,7 +355,6 @@ audio::-webkit-media-controls-panel {
   color: var(--neutral-1-25);
   border: 1px solid var(--neutral-highlight-1);
   padding: 0.5em;
-  margin: 0.5em;
   min-height: 10em;
   max-height: 15em;
   overflow: hidden;
