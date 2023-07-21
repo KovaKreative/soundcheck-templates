@@ -416,6 +416,9 @@ audio::-webkit-media-controls-panel {
   width: 100vw;
   height: 100vh;
   background-color: #0008;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 img.photo {
@@ -424,19 +427,22 @@ img.photo {
   aspect-ratio: 4 / 3;
   border: 2px solid var(--dark-1);
   object-fit: cover;
-
 }
 
 img.photo:hover {
   cursor: pointer;
 }
 
-img.photo.active {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
+#active-photo {
+  aspect-ratio: 4 / 3;
+  /* position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); */
+  width: auto;
+  height: auto;
+  max-width: 100vw;
+  max-height: 100vh;
   object-fit: scale-down;
 }
 
